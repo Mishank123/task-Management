@@ -1,0 +1,45 @@
+<div class="col-md-10">
+    <h3 class="card-title">Add Task Details</h3>
+    <div class="card">
+<form [formGroup]="taskForm">
+<div class="card-body">
+    <!-- <div class="col-md-6 form-group">
+        <label class="card-subtitle mb-2 text-muted" for="">Id</label>
+        <input type="text" formControlName="id" class="form-control">
+        <mat-error>
+
+        </mat-error>
+    </div> -->
+    <div class="col-md-6 form-group">
+        <label class="card-subtitle mb-2 text-muted" for="">Title</label>
+        <input formControlName="title" type="text" class="form-control">
+        <div>
+        <mat-error *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched">
+           Title is required.
+          </mat-error>
+        </div>
+    </div>
+    <div class="col-md-6 form-group">
+        <label class="card-subtitle mb-2 text-muted" for="">Description</label>
+        <input type="text" formControlName="description"class="form-control">
+        <div>
+            <mat-error *ngIf="taskForm.get('description')?.invalid && taskForm.get('description')?.touched">
+              Description is required.
+              </mat-error>
+            </div>
+    </div>
+    <div class="col-md-6 form-group">
+        <label  class="card-subtitle mb-2 text-muted" for="">Completed</label>
+        <input type="text" formControlName="completed" class="form-control">
+    </div>
+    <div class="col-md-6 form-group">
+    <button class="btn btn-success" *ngIf="!editMode" [disabled]="taskForm.invalid" (click)="addTask()">
+  submit
+    </button>
+    <button class="btn btn-success" *ngIf="editMode" [disabled]="taskForm.invalid" (click)="updateTask()">
+Update
+          </button>
+</div>
+</div></form>
+</div>
+</div>

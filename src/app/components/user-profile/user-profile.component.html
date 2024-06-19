@@ -1,0 +1,22 @@
+<div class="container" *ngIf="userForm">
+    <h2>User Profile</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Profile Picture URL</mat-label>
+        <input matInput formControlName="profilePicture">
+      </mat-form-field>
+      <div class="profile-picture">
+        <img [src]="userForm.get('profilePicture').value" alt="Profile Picture" *ngIf="userForm.get('profilePicture')?.value">
+      </div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid ">Save</button>
+    </form>
+  </div>
+  

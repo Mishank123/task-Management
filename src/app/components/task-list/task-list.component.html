@@ -1,0 +1,41 @@
+
+<div class="container-fluid">
+<div class="row">
+    <h2>Task List</h2>
+    <button mat-raised-button color="primary" routerLink="/add-task">Add Task</button>
+</div>
+
+<div>
+
+</div>
+    <div>
+        <table class="table table-striped">
+            <thead class="thead-light">
+            <tr>
+          <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of task">
+                <td>{{data.id}}</td>
+                <td>{{data.title}}</td>
+                <td>{{data.description}}</td>
+                <td>{{data.completed}}</td>
+                <td>
+                    <div><mat-icon (click)="deleteTask(data.id)">
+                        delete
+                      </mat-icon>
+                      <mat-icon [routerLink]="['/add-task',data.id]">
+                        edit
+                      </mat-icon></div>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+
